@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import Entity.Document;
 import Entity.StudentDetail;
 import utility.StudentHibernate;
 
@@ -15,11 +16,17 @@ public class RepoClass {
 
 	public void addStudent() {
 
-		StudentDetail student = new StudentDetail();
+		Document document = new Document();
 
-		System.out.println("Enter Student Id ");
-		int id = sc.nextInt();
-		student.setId(id);
+		System.out.println("Enter a Adhar no");
+		long adhar = sc.nextLong();
+		document.setAdharNo(adhar);
+
+		System.out.println("Enter Pan No");
+		String panNo = sc.next();
+		document.setPanNo(panNo);
+
+		StudentDetail student = new StudentDetail();
 
 		System.out.println("Enter your name ");
 		String name = sc.next();
@@ -36,6 +43,9 @@ public class RepoClass {
 		System.out.println("Enter your mark");
 		int mark = sc.nextInt();
 		student.setMarks(mark);
+
+		// for student document
+		student.setDocument(document);
 
 		SessionFactory factory = StudentHibernate.getFactory();
 		Session session = factory.openSession();
@@ -86,6 +96,14 @@ public class RepoClass {
 		System.out.println("Enter your Marks");
 		int mark = sc.nextInt();
 		s.setMarks(mark);
+
+		System.out.println("Enter your updated adhar ");
+		long adhar = sc.nextLong();
+		s.getDocument().setAdharNo(adhar);
+
+		System.out.println("Enter your updated pan no");
+		String panNo = sc.next();
+		s.getDocument().setPanNo(panNo);
 
 		transaction.commit();
 		session.close();

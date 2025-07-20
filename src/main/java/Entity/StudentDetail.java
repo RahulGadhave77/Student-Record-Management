@@ -1,7 +1,12 @@
 package Entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -9,6 +14,7 @@ import jakarta.persistence.Table;
 public class StudentDetail {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private String name ;
@@ -18,6 +24,9 @@ public class StudentDetail {
 	private String course;
 	
 	private int marks ;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Document document;
 	
 	public int getId() {
 		return id;
@@ -59,10 +68,18 @@ public class StudentDetail {
 		this.marks = marks;
 	}
 
+	public Document getDocument() {
+		return document;
+	}
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
+
 	@Override
 	public String toString() {
 		return "StudentDetail [id=" + id + ", name=" + name + ", email=" + email + ", course=" + course + ", marks="
-				+ marks + "]";
+				+ marks + ", document=" + document + "]";
 	}
 
 	

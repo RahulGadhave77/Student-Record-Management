@@ -13,7 +13,7 @@ import utility.StudentHibernate;
 public class RepoClass {
 
 	Scanner sc = new Scanner(System.in);
-//post data 
+	
 	public void addStudent() {
 
 		Document document = new Document();

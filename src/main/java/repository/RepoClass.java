@@ -72,6 +72,7 @@ public class RepoClass {
 		transaction.commit();
 		session.close();
 	}
+	//updata data from database
 
 	public void Update() {
 		SessionFactory factory = StudentHibernate.getFactory();

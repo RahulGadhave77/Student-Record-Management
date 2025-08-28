@@ -56,6 +56,7 @@ public class RepoClass {
 		transaction.commit();
 		session.close();
 	}
+	//get all student data from data base
 
 	public void getAllStudent() {
 

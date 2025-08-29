@@ -110,7 +110,7 @@ public class RepoClass {
 		transaction.commit();
 		session.close();
 	}
-
+//delete data by pk
 	public void delete() {
 		SessionFactory factory = StudentHibernate.getFactory();
 		Session session = factory.openSession();

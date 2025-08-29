@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import Entity.Document;
 import Entity.StudentDetail;
 import utility.StudentHibernate;
-
+//Repository class
 public class RepoClass {
 
 	Scanner sc = new Scanner(System.in);
